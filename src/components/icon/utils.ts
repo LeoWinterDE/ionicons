@@ -1,6 +1,9 @@
-import { getAssetPath } from '@stencil/core';
+import { getAssetPath, setAssetPath } from '@stencil/core';
 import { Icon } from './icon';
 
+const importMeta = import.meta.url;
+const resourceUrl = new URL('.', importMeta).href;
+setAssetPath(resourceUrl);
 
 let CACHED_MAP: Map<string, string>;
 
